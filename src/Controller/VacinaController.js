@@ -36,7 +36,7 @@ exports.post = (req, res, next) => {
     if(typeof dataVencimentoLote === "undefined") {
       res.json({"errorMessage":"Lote não pertence a lista divulgada"}).status(417);   
     } else {
-      let isVencida = +dataVencimentoLote <= +dateVaccine;
-      res.json({"resultado":!isVencida}).status(200);  
+      let isVencida = +dataVencimentoLote > +dateVaccine;
+      res.json({"resultado":isVencida}).status(200);  
     }
  };
