@@ -74,9 +74,9 @@
             data : $('#frm').serialize(),
             success: function(result){
                 if (result.resultado)
-                    alert("Vacina vencida. Atenção, esse resultado é baseado na validade dos lotes informados. Não leve como um resultado oficial");
-                else
                     alert("Vacina aplicada dentro do prazo. Atenção, esse resultado é baseado na validade dos lotes informados. Não leve como um resultado oficial");
+                else
+                    alert("Vacina vencida. Atenção, esse resultado é baseado na validade dos lotes informados. Não leve como um resultado oficial");
             }
             });
             return false;

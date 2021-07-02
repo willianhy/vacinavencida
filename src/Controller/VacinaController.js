@@ -32,12 +32,11 @@ exports.post = (req, res, next) => {
     collection.set("4120Z025", new Date(2020, 06, 04));
     
     
-    let resultado = collection.get(id);
-    if(typeof resultado === "undefined") {
+    let dataVencimentoLote = collection.get(id);
+    if(typeof dataVencimentoLote === "undefined") {
       res.json({"errorMessage":"Lote não pertence a lista divulgada"}).status(417);   
     } else {
-      let isVencida = +resultado <= +dateVaccine;
-      res.json({"resultado":isVencida}).status(200);
-  
+      let isVencida = +dataVencimentoLote <= +dateVaccine;
+      res.json({"resultado":!isVencida}).status(200);  
     }
  };
