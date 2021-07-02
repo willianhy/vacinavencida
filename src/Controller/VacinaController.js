@@ -17,8 +17,8 @@ exports.post = (req, res, next) => {
  };
   
  exports.getById = (req, res, next) => {
-    let id = req.params.id;
-    let dateVaccine = new Date(req.params.dateVaccine);
+    let id = req.query.id;
+    let dateVaccine = new Date(req.query.dateVaccine);
 
     const collection = new Map();
 

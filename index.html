@@ -32,18 +32,18 @@
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Veja se sua vacina está vencida</h2>
-                    <form method="POST" id="frm" action="https://run.mocky.io/v3/a82a6935-adb1-490b-99fc-ccdee82a8952">
+                    <form method="GET" id="frm" action="http://localhost:5000/vacina">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Lote da vacina</label>
-                                    <input class="input--style-4" type="text" name="lote" required>
+                                    <input class="input--style-4" type="text" name="id" required>
                                 </div>
                             </div>     
                             <div class="col-2">
                                 <label class="label">Data aplicação</label>
                                 <div class="input-group-icon">
-                                    <input class="input--style-4 js-datepicker" type="text" name="aplicacao" required>
+                                    <input class="input--style-4 js-datepicker" type="text" name="dateVaccine" required>
                                     <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
         $('#frm').submit(function(){
             $.ajax({
             url: $('#frm').attr('action'),
-            type: 'POST',
+            type: 'GET',
             data : $('#frm').serialize(),
             success: function(result){
                 if (result.resultado)
